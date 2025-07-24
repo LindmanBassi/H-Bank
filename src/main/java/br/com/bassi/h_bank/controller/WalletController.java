@@ -1,6 +1,7 @@
 package br.com.bassi.h_bank.controller;
 
 import br.com.bassi.h_bank.dto.DepositMoneyDto;
+import br.com.bassi.h_bank.dto.StatementDto;
 import br.com.bassi.h_bank.dto.WalletDto;
 import br.com.bassi.h_bank.exception.WalletDataAlreadyExistsException;
 import br.com.bassi.h_bank.service.WalletService;
@@ -53,6 +54,16 @@ public class WalletController {
                  servletRequest.getAttribute("x-user-ip").toString());
          return ResponseEntity.ok().build();
 
+    }
+
+    @GetMapping("/{walletId}/statements")
+    public ResponseEntity<StatementDto> getStatements(@PathVariable("walletId") UUID walletId,
+                                                      @RequestParam(name = "page",defaultValue = "0")Integer page,
+                                                      @RequestParam(name = "pageSize",defaultValue = "10")Integer pageSize){
+
+       var statement= walletService.getStatements(walletId,page,pageSize);
+
+       return ResponseEntity.ok(statement);
     }
 
 }
