@@ -43,18 +43,22 @@ public class TransferService {
     }
 
     private void updateWallets(TransferMoneyDto dto, Wallet sender, Wallet receiver) {
+
         sender.setBalance(sender.getBalance().subtract(dto.value()));
         receiver.setBalance(receiver.getBalance().add(dto.value()));
         walletRepository.save(sender);
         walletRepository.save(receiver);
+
     }
 
     private void persistTransfer(TransferMoneyDto dto, Wallet receiver, Wallet sender) {
+
         var transfer = new Transfer();
         transfer.setReceiver(receiver);
         transfer.setSender(sender);
         transfer.setTransferValue(dto.value());
         transfer.setTransferDateTime(LocalDateTime.now());
         transferRepository.save(transfer);
+
     }
 }

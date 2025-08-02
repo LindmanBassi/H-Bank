@@ -21,6 +21,7 @@ public class TransferController {
 
     @PostMapping
     public ResponseEntity<Void> transfer(@RequestBody @Valid TransferMoneyDto dto){
+
         transferService.transferMoney(dto);
 
         return ResponseEntity.ok().build();

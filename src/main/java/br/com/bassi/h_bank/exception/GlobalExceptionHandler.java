@@ -17,6 +17,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler (MethodArgumentNotValidException.class)
     public ProblemDetail handleMethodArgumentNotValidException(MethodArgumentNotValidException e){
+
       var invalidParams =  e.getFieldErrors()
                 .stream()
                 .map(fe -> new InvalidParamDto(fe.getField(), fe.getDefaultMessage()))

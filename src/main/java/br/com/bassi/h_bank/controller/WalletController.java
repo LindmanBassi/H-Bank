@@ -3,14 +3,11 @@ package br.com.bassi.h_bank.controller;
 import br.com.bassi.h_bank.dto.DepositMoneyDto;
 import br.com.bassi.h_bank.dto.StatementDto;
 import br.com.bassi.h_bank.dto.WalletDto;
-import br.com.bassi.h_bank.exception.WalletDataAlreadyExistsException;
 import br.com.bassi.h_bank.service.WalletService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.net.URI;
 import java.util.UUID;
 

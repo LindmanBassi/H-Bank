@@ -33,6 +33,7 @@ public class AuditInterceptor implements HandlerInterceptor {
                                 HttpServletResponse response,
                                 Object handler,
                                 Exception ex) throws Exception {
+
         logger.info("Audit - Metodo: {}, Url: {}, StatusCode: {}, IpAddress: {}",
                 request.getMethod(),
                 request.getRequestURI(),

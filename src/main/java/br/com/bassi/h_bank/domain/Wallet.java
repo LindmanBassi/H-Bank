@@ -1,7 +1,6 @@
 package br.com.bassi.h_bank.domain;
 
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.util.UUID;
 

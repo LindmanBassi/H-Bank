@@ -36,9 +36,11 @@ public class WalletService {
     public Wallet createWallet(WalletDto dto) {
 
         var walletDb = walletRepository.findByCpfOrEmail(dto.cpf(),dto.email());
+
         if(walletDb.isPresent()){
             throw new WalletDataAlreadyExistsException("cpf or email already exists");
         }
+
         var wallet = new Wallet();
         wallet.setBalance(BigDecimal.ZERO);
         wallet.setName(dto.name());
